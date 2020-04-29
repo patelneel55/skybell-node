@@ -1,0 +1,19 @@
+{
+  "name": "skybell-node",
+  "version": "0.0.1",
+  "description": "A node wrapper for the SkyBell HD API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patelneel55/skybell-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patelneel55/skybell-node/issues"
+  },
+  "homepage": "https://github.com/patelneel55/skybell-node#readme"
+}
