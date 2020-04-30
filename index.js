@@ -1,6 +1,6 @@
 'use strict'
 
-const debugLog = require('util').debuglog('skybell');
+const debugLog = require('util').debuglog('skybell-js');
 
 let SkyBellSession = require('./lib/session.js');
 
@@ -10,10 +10,10 @@ class SkyBell {
         if(!username || !password)
             throw Error("Username or password is missing.");
 
-        this.skyBellDevices;
+        this.skyBellDevices = [];
 
         this.skybellSession = new SkyBellSession(username, password, {
-            callback: (id, deviceObj) => this.skyBellDevices[id] = deviceObj
+            callback: (id, deviceObj) => this.skyBellDevices.push({id: id, deviceInstance: deviceObj})
         });
 
         debugLog("SkyBell session created successfully.");
@@ -33,8 +33,8 @@ class SkyBell {
                 this.skyBellDevices = response;
                 callback(null, response);
             }
-
-            callback(err, response);
+            else
+                callback(err, response);
         });
     }
 
@@ -46,3 +46,12 @@ class SkyBell {
         
     }
 }
+
+let skybell = new SkyBell("patelfamily005@gmail.com", "Tn04365!");
+
+skybell.getDevices((err, data) => {
+    for(let a of data){
+        a.deviceInstance.getActivities((err, body) => console.log(body))
+    }
+    // console.log(data);
+})
