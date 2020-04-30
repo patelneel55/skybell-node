@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/patelneel55/skybell-node#readme",
   "dependencies": {
+    "ip": "^1.1.5",
     "uuid4": "^1.1.4"
   }
 }
